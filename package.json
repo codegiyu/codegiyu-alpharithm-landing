@@ -15,6 +15,7 @@
     "generate:icons": "npx @svgr/cli --out-dir components/icons --ignore-existing --typescript --replace-attr-values #fff=currentColor,#000=currentColor --jsx-runtime automatic --icon -- public/icons"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-slot": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

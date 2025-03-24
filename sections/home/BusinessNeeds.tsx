@@ -46,9 +46,8 @@ export const BusinessNeeds = () => {
     if (!swiperRef.current) {
       return;
     }
-    console.log({ num });
 
-    swiperRef.current.slideTo(num);
+    swiperRef.current.slideTo(num, 1200);
   };
 
   return (
@@ -64,13 +63,14 @@ export const BusinessNeeds = () => {
           </p>
         </div>
 
-        <div className="w-fit mx-auto flex items-center gap-1 border border-[#E4E4E7] rounded-[12px] p-1">
+        <div className="w-fit mx-auto hidden lg:flex items-center gap-1 border border-[#E4E4E7] rounded-[12px] p-1">
           {businessNeedsList.map(({ title }, idx) => (
             <AlphaBtn
               key={idx}
               text={title}
               variant={idx === activeIndex ? 'default' : 'ghost'}
-              className="transition-all ease-in duration-300"
+              size="average"
+              className="transition-all ease-in duration-[1200]"
               onClick={() => goToSlide(idx)}
             />
           ))}
@@ -90,8 +90,8 @@ export const BusinessNeeds = () => {
           {businessNeedsList.map((item, idx) => (
             <SwiperSlide
               key={idx}
-              className={`keen-slider__slide w-[72vw]! transition-all duration-300 ease-in-out bg-light-grey rounded-[12px] ${idx === activeIndex ? '' : 'mt-[4rem]'}`}>
-              <BusinessNeed key={idx} index={idx} activeIndex={activeIndex} {...item} />
+              className={`w-[72vw]! transition-all duration-[1200] ease-in-out bg-light-grey rounded-[12px] ${idx === activeIndex ? '-translate-y-[4rem]' : ''} mt-[4rem]`}>
+              <BusinessNeed key={idx} {...item} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -106,13 +106,7 @@ interface BusinessNeedProps {
   img: string;
 }
 
-function BusinessNeed({
-  title,
-  text,
-  img,
-  // index,
-  // activeIndex,
-}: BusinessNeedProps & { index: number; activeIndex: number }) {
+function BusinessNeed({ title, text, img }: BusinessNeedProps) {
   return (
     <div
       className={`flex flex-col-reverse md:grid md: grid-cols-2 md:items-stretch overflow-hidden`}>
@@ -121,7 +115,7 @@ function BusinessNeed({
           <h6 className="font-inter text-sm lg:text-xl leading-5 lg:leading-6 font-semibold -tracking-[2%] text-grey-2">
             {title}
           </h6>
-          <h3 className="font-figtree text-2xl lg:text-[2.6875rem] leading-[1.187] -tracking-[2%] font-semibold text-dark-3">
+          <h3 className="font-figtree text-xl lg:text-[2.6875rem] leading-[1.187] -tracking-[2%] lg:font-semibold text-dark-3">
             {text}
           </h3>
           <AlphaBtn text="Learn More" />
