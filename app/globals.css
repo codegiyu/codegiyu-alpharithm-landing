@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import './theme.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -42,19 +43,6 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-
-  /* Text and bg colors */
-  --color-primary-blue: '#03217F';
-  --color-dark-blue: '#04142B';
-  --color-light-blue: '#0037FF';
-  --color-very-light-blue: '#7191FF';
-  --color-dark-1: '#05152C';
-  --color-dark-2: '#101828';
-  --color-dark-3: '#22263F';
-  --color-light-grey: '#F6FAF3';
-  --color-grey-a: '#AAAAAA';
-  --color-grey-1: '#667085';
-  --color-grey-2: '#828282';
 }
 
 :root {
@@ -130,7 +118,14 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply text-[16px];
+  }
   body {
     @apply bg-background text-foreground;
+  }
+
+  .center-container {
+    @apply w-full px-4 sm:px-10 xl:px-[3.75rem] 1440:px-[4.375rem] mx-auto;
   }
 }

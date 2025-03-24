@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: 'Alpha - AI Models For Business Solutions',
     description:
       'Leverage the power of AI to automate, analyze, and optimize your workflows. Our specialized models are designed to fit different business needs',
-    images: [{ url: '' }],
+    images: [{ url: 'https://i.postimg.cc/0NgQhN4V/Screenshot-2025-03-24-020528.png' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description:
       'Leverage the power of AI to automate, analyze, and optimize your workflows. Our specialized models are designed to fit different business needs',
     creator: '@TheLonerider20',
-    images: [''],
+    images: ['https://i.postimg.cc/0NgQhN4V/Screenshot-2025-03-24-020528.png'],
   },
 };
 

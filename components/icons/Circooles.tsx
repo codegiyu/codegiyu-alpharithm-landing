@@ -1,5 +1,5 @@
 import type { SVGProps } from 'react';
-const SvgSircooles = (props: SVGProps<SVGSVGElement>) => (
+const SvgCircooles = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     // width="1em"
@@ -25,4 +25,4 @@ const SvgSircooles = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-export default SvgSircooles;
+export default SvgCircooles;
