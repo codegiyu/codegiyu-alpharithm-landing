@@ -44,7 +44,7 @@ export const Header = () => {
             <AlphaBtn
               variant="ghost"
               size="icon"
-              className="hover:bg-transparent"
+              className="lg:hidden hover:bg-transparent"
               onClick={() => setMenuOpen(prev => !prev)}>
               <i className="text-2xl text-white">
                 <Menu />
