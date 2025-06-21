@@ -2,8 +2,8 @@
 
 import { AlphaBtn } from '@/components/atoms/AlphaBtn';
 import { useRef, useState } from 'react';
-import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
-import { Mousewheel, Manipulation, A11y, Pagination, Parallax, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
+import { Mousewheel, Manipulation, A11y, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -40,14 +40,15 @@ const businessNeedsList: BusinessNeedProps[] = [
 export const BusinessNeeds = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const swiperRef = useRef<SwiperClass>(null);
+  const swiperRef = useRef<SwiperRef>(null);
 
   const goToSlide = (num: number) => {
+    console.log({ num, swiper: swiperRef.current });
     if (!swiperRef.current) {
       return;
     }
 
-    swiperRef.current.slideTo(num, 1200);
+    swiperRef.current.swiper.slideToLoop(num, 1200);
   };
 
   return (
@@ -70,7 +71,7 @@ export const BusinessNeeds = () => {
               text={title}
               variant={idx === activeIndex ? 'default' : 'ghost'}
               size="average"
-              className="transition-all ease-in duration-[1200]"
+              className="transition-all ease-in duration-300"
               onClick={() => goToSlide(idx)}
             />
           ))}
@@ -79,18 +80,20 @@ export const BusinessNeeds = () => {
 
       <div className="w-full overflow-hidden">
         <Swiper
-          modules={[Mousewheel, Manipulation, A11y, Pagination, Parallax, Navigation]}
+          modules={[Mousewheel, Manipulation, A11y, Pagination, Navigation]}
           loop={true}
           centeredSlides={true}
           slidesPerView={'auto'}
           spaceBetween={28}
-          onSwiper={swiper => (swiperRef.current = swiper)}
+          onSwiper={swiper => {
+            swiperRef.current = { swiper };
+          }}
           onSlideChange={swiper => setActiveIndex(swiper.realIndex || 0)}
           className="w-full h-auto flex justify-center flex-nowrap">
           {businessNeedsList.map((item, idx) => (
             <SwiperSlide
               key={idx}
-              className={`w-[72vw]! transition-all duration-[1200] ease-in-out bg-light-grey rounded-[12px] ${idx === activeIndex ? '-translate-y-[4rem]' : ''} mt-[4rem]`}>
+              className={`w-[72vw]! transition-all duration-[1200ms] ease-in-out bg-light-grey rounded-[12px] ${idx === activeIndex ? 'animate-[slide-up_500ms_ease-in-out_forwards] duration-500' : ''} mt-[4rem]`}>
               <BusinessNeed key={idx} {...item} />
             </SwiperSlide>
           ))}

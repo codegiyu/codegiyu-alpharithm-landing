@@ -17,7 +17,7 @@ export const AlphaBtn = (
   const Wrapper = !!href ? Link : 'div';
 
   return (
-    <Wrapper href={href ?? ''} className="">
+    <Wrapper href={href ?? '#'} className="">
       <Button ref={ref} {...props}>
         {children ? children : <span className="">{text}</span>}
       </Button>

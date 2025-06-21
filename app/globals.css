@@ -129,3 +129,12 @@
     @apply w-full px-4 sm:px-10 xl:px-[3.75rem] 1440:px-[4.375rem] mx-auto;
   }
 }
+
+@keyframes slide-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4rem);
+  }
+}
